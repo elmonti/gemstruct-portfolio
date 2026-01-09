@@ -1,73 +1,190 @@
-# React + TypeScript + Vite
+# Gemstruct
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio and studio site for Kurt Montanaro. Built as a single-page React + TypeScript app with structured, machine-readable outputs for agents and search.
 
-Currently, two official plugins are available:
+Live: https://gemstruct.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Highlights
 
-## React Compiler
+- Content is centralized in `src/app/content.ts`.
+- Build-time generation for AI-friendly artifacts in `public/`.
+- Lightweight, dependency-minimal UI with custom components and sections.
+- Theme toggle with persisted preference.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19 + TypeScript
+- Vite
+- CSS (no UI frameworks)
+- ESLint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Content Model
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+All site content lives in:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+`src/app/content.ts`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+This file drives:
+
+- UI rendering
+- SEO metadata
+- JSON-LD structured data
+- AI-readable exports (`resume.json`, `llms.txt`)
+
+There is one canonical data source to avoid drift.
+
+## AI / Agent Compatibility
+
+At build time, the site generates:
+
+- `/llms.txt` — instructions and context for AI agents
+- `/resume.json` — structured resume data
+- `/sitemap.xml`
+- `/robots.txt`
+- JSON-LD (Person + WebSite) injected into the page
+
+These files are generated automatically from `content.ts`.
+
+## Why This Matters
+
+- AI agents can reliably understand who you are
+- No scraping or hallucination required
+- Stable URLs for automation and citation
+
+
+## Project Structure
+
+```txt
+src/
+  app/
+    content.ts        # Site data (single source of truth)
+    types.ts          # Content types
+  components/
+    Card.tsx
+    Container.tsx
+    JsonLd.tsx
+    Navbar.tsx
+    SlotText.tsx
+    ThemeToggle.tsx
+  hooks/
+    useRotatingText.ts
+  sections/
+    Hero.tsx
+    Work.tsx
+    Projects.tsx
+    Skills.tsx
+    Education.tsx
+    About.tsx
+    Contact.tsx
+  styles/
+    globals.css
+    tokens.css
+
+scripts/
+  generate-ai-files.ts
+
+public/
+  llms.txt
+  resume.json
+  profile.json
+  sitemap.xml
+  robots.txt
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Slot-Style Rotating Headline
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The hero headline uses a custom slot reel animation:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Smooth vertical spin
+- Fixed width (measured from widest string)
+- No layout shift
+- No animation libraries
+
+This is implemented in:
+
+`src/components/SlotText.tsx`
+
+## Commands
+
+- `npm run dev` — start dev server
+- `npm run build` — typecheck + production build
+- `npm run preview` — preview build
+- `npm run lint` — lint
+
+## Development
+
+Install dependencies:
+
+`npm install`
+
+Run locally:
+
+`npm run dev`
+
+Build:
+
+`npm run build`
+
+The build process:
+
+- Generates AI-optimized files
+- Builds the static site with Vite
+
+## AI/SEO Artifacts
+
+Generated by `scripts/generate-ai-files.ts` (via `npm run build` prebuild):
+
+- `public/llms.txt`
+- `public/resume.json`
+- `public/profile.json`
+- `public/sitemap.xml`
+- `public/robots.txt`
+
+## Build-Time AI File Generation
+
+AI files are generated via:
+
+`npm run prebuild`
+
+This runs:
+
+`scripts/generate-ai-files.ts`
+
+The script outputs:
+
+- `public/llms.txt`
+- `public/resume.json`
+- `public/sitemap.xml`
+- `public/robots.txt`
+
+The generator is run using `tsx` to support TypeScript imports.
+
+## Deployment
+
+Gemstruct is designed to be deployed as a static site.
+
+Works out of the box with:
+
+- Vercel
+- Netlify
+- GitHub Pages
+- Any static host
+
+No server required.
+
+## Design Philosophy
+
+- Minimal UI
+- Strong typographic hierarchy
+- Subtle motion, no gimmicks
+- Content first
+- Agent-readable by default
+
+This is a deliberate alternative to heavy portfolio frameworks.
+
+
+## License
+
+This project is personal and not intended as a reusable template.
+
+All rights reserved © Kurt Montanaro.
