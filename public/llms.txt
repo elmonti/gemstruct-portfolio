@@ -1,0 +1,19 @@
+# Gemstruct
+Gemstruct is the personal studio of Kurt Montanaro, focused on frontend engineering, clean UX, and practical software.
+
+## Canonical URL
+https://gemstruct.com/
+
+## Primary profiles
+GitHub: https://github.com/elmonti
+LinkedIn: https://www.linkedin.com/in/kurt-montanaro-9715b097/
+CV: /Kurt-Montanaro-CV.pdf
+
+## What this site contains
+- Work experience (featured + earlier)
+- Selected projects
+- Skills and education
+- Contact details
+
+## Contact
+Email: montakurt@gmail.com
