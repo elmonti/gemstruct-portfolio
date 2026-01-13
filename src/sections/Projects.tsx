@@ -5,7 +5,7 @@ import { site } from "../app/content";
 
 export default function Projects() {
   return (
-    <Section id="projects" title="Projects" subtitle="A few things I’ve built or am building.">
+    <Section id="projects" title="Projects" subtitle="A few things I've built or am building.">
       <div className="grid">
         {site.projects.map((p) => (
           <Card key={p.name}>

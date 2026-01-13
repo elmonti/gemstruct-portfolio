@@ -51,7 +51,7 @@ export default function Hero() {
             <div>
               <p className="muted">Gemstruct</p>
               <p className="strong">
-                Selected projects and experiments.
+                Personal studio for building and shipping software, tools, and experiments.
               </p>
             </div>
           </div>
