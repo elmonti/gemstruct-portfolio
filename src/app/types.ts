@@ -30,7 +30,7 @@ export type SiteContent = {
   person: {
     name: string;
     headline: string;
-    location: string;
+    location: { name:string; continent?:string ; timezone?: string; }
     summary: string;
     email: string;
     links: Link[];

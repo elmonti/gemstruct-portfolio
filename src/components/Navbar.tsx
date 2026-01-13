@@ -22,7 +22,7 @@ export default function Navbar({
       <Container>
         <div className="nav__inner">
           <a className="nav__brand" href="#top">
-            {site.brand.name ?? site.person.name}
+            {site.brand.name ?? <img style={{width:`100%`,height:`100%`}} src="../../public/gemstruct.svg"/>}
           </a>
 
           <nav className="nav__links" aria-label="Primary">

@@ -9,13 +9,12 @@ export default function Hero() {
       <Container>
         <div className="hero__grid">
           <div>
-            <p className="eyebrow">{site.person.location}</p>
+            <p className="eyebrow">{site.person.location.name} {site.person.location.continent && ` · ${site.person.location.continent}`}</p>
 
             <h1 className="h1">{site.brand.name}</h1>
 
             <p className="lead">
-              I’m {site.person.name} a software developer in Malta. I build fast,
-              reliable interfaces and the systems around them.
+              I’m {site.person.name}, a software developer based in {site.person.location.name}. I build fast, reliable interfaces backed by clean, maintainable systems.
             </p>
 
             <p className="tagline" style={{ marginTop: 10, minHeight: 24 }}>
@@ -24,9 +23,9 @@ export default function Hero() {
             </p>
 
             <div className="stack row" style={{ marginTop: 14 }}>
-              <a className="btn" href="#work">Work Experience</a>
+              <a className="btn" href="#work">View work</a>
               <a className="btn btn--ghost" href={`mailto:${site.person.email}`}>
-                Email me
+                Get in touch
               </a>
             </div>
 
@@ -52,7 +51,7 @@ export default function Hero() {
             <div>
               <p className="muted">Gemstruct</p>
               <p className="strong">
-                Personal studio for shipping software, tools, and experiments.
+                Selected projects and experiments.
               </p>
             </div>
           </div>

@@ -9,23 +9,27 @@ export const site: SiteContent = {
   brand: {
     name: "Gemstruct",
     taglineRotating: [
-      "Senior Frontend Developer • React & TypeScript",
-      "Product-minded software builder",
-      "Clean UI, maintainable systems",
       "Shipping practical web products",
+      "Clean UI, maintainable systems",
+      "From idea to production",
+      "Focused on clarity and performance",
     ],
   },
   person: {
     name: "Kurt Montanaro",
     headline: "Software Developer • Frontend & Full Stack • TypeScript/Node.js",
-    location: "Malta",
+    location: {
+      name: "Malta",
+      continent: "EU",
+      timezone: "CEST"
+    },
     summary:
       "Full Stack Developer, flexible across NodeJS and .NET frameworks, with experience in PHP, web design, HTML, and CSS (including preprocessors).",
     email: "montakurt@gmail.com",
     links: [
       { label: "GitHub", href: "https://github.com/elmonti" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/kurt-montanaro-9715b097/" },
-      { label: "CV", href: "/Kurt-Montanaro-CV.pdf" },
+      { label: "CV (PDF)", href: "/Kurt-Montanaro-CV.pdf" },
     ],
   },
 
@@ -37,9 +41,9 @@ export const site: SiteContent = {
       start: "Nov 2023",
       end: "Present",
       highlights: [
-        "Senior frontend development role focused on shipping production UI.",
-        "Collaborate with product and engineering to deliver features reliably.",
-        "Drive maintainability through reusable patterns and clean code.",
+        "Senior frontend role focused on shipping production-ready user interfaces.",
+        "Collaborated closely with product and engineering to deliver features reliably.",
+        "Drove maintainability through reusable patterns and clean, well-structured code.",
       ],
       links: [{ label: "Company", href: "https://www.playngo.com/" }],
     },
@@ -76,7 +80,7 @@ export const site: SiteContent = {
       highlights: [
         "Freelance web development for clients and personal projects.",
         "Build practical, maintainable solutions end-to-end.",
-        "Comfortable across frontend, backend, and deployment basics.",
+        "Comfortable working across frontend, backend, and deployment.",
       ],
     },
   ],
@@ -188,24 +192,23 @@ export const site: SiteContent = {
     },
   ],
 
-  // Keep these as “Selected projects”. If you paste a project list, I’ll replace them with real ones.
   projects: [
     {
       name: "Gemstruct",
-      description: "Personal portfolio and experiments hub for projects and prototypes.",
+      description: "Personal portfolio and experiments hub for software projects and prototypes.",
       tags: ["React", "TypeScript", "Vite"],
       links: [{ label: "Website", href: "https://gemstruct.com" }],
     },
     {
       name: "Pixi.js / WebGL Prototypes",
-      description: "Interactive graphics prototypes and performance-focused UI experiments.",
+      description: "Interactive graphics prototypes and performance-focused UI experiments using WebGL.",
       tags: ["Pixi.js", "WebGL", "TypeScript"],
       links: [],
     },
   ],
 
   skills: [
-    { group: "Top skills", items: ["WebGL", "Pixi.js", "Problem Solving"] },
+    { group: "Top skills", items: ["Pixi.js", "WebGL",  "Problem Solving"] },
     { group: "Web", items: ["HTML", "CSS", "Web Design"] },
     { group: "Backend", items: ["NodeJS", ".NET", "PHP"] },
     { group: "Languages", items: ["English (Native/Bilingual)", "Maltese (Native/Bilingual)", "Italian (Limited Working)"] },
@@ -214,7 +217,7 @@ export const site: SiteContent = {
   education: [
     {
       school: "IICT MCAST PAOLA",
-      program: "Bachelor’s Degree — Computer Science in Software Development",
+      program: "Bachelor's Degree — Computer Science (Software Development)",
       start: "2015",
       end: "2018",
     },
@@ -233,7 +236,7 @@ export const site: SiteContent = {
   ],
 
   about: [
-    "Full Stack Developer with experience across frontend and backend, flexible across NodeJS and .NET frameworks, and comfortable with PHP and web technologies.",
-    "Top interests include performance-focused UI, interactive graphics (WebGL), and shipping maintainable products.",
+    "Full stack developer with experience across frontend and backend, flexible across Node.js and .NET, and comfortable working with PHP and core web technologies.",
+    "Current interests include performance-focused UI, interactive graphics (WebGL), and shipping maintainable products.",
   ],
 };

@@ -47,7 +47,7 @@ function WorkCard({
 
 export default function Work() {
   return (
-    <Section id="work" title="Work experience" subtitle="Most relevant roles first.">
+    <Section id="work" title="Work experience" subtitle="Selected roles.">
       <div className="grid">
         {site.workFeatured.map((w) => (
           <WorkCard key={`${w.company}-${w.role}-${w.start}`} {...w} />

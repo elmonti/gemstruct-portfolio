@@ -6,7 +6,7 @@ export default function Education() {
   if (!site.education?.length) return null;
 
   return (
-    <Section id="education" title="Education" subtitle="Academic background and qualifications.">
+    <Section id="education" title="Education" subtitle="Academic background.">
       <div className="grid">
         {site.education.map((e) => (
           <Card key={`${e.school}-${e.program}`}>

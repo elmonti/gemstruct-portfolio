@@ -82,7 +82,7 @@ export default function SlotText({
         className={`slot ${className ?? ""}`}
         style={{
           width: width ? `${width}px` : "auto",
-          ["--spin-ms" as any]: `${spinMs}ms`,
+          ["--spin-ms" as never]: `${spinMs}ms`,
         }}
       >
         <span className={`slot__reel ${spinning ? "is-spinning" : ""}`}>
